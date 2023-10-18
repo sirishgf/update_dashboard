@@ -27,6 +27,7 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
+          credentials_json: ${{ secrets.credentials_json }}
           service_account: 'cf-github-deploy@proctrac.iam.gserviceaccount.com'
 
     - id: 'deploy'
