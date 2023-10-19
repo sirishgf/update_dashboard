@@ -31,11 +31,7 @@ jobs:
           service_account: 'firebase-adminsdk-e5bp0@proctrac.iam.gserviceaccount.com'
 
     - id: 'deploy'
-      uses: 'google-github-actions/deploy-cloud-functions@v1'
+      uses: 'jxw1102/action-functions-deploy@0.7.1'
       with:
-        name: 'updateDashboard'
-        runtime: 'nodejs18'
-
-    # Example of using the output
-    - id: 'test'
-      run: 'curl "${{ steps.deploy.outputs.url }}"'
+        firebaseServiceAccount: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS  }}"
+        projectId: "${{ secrets.FIREBASE_PROJECT }}"
