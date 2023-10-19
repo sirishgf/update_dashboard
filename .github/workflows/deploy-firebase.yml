@@ -3,6 +3,7 @@ name: Deploy to Firebase Functions via github action
   push:
     branches:
       - main
+
 env:
   CI: false
 
