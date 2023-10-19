@@ -19,5 +19,5 @@ jobs:
       - name: Deploy
         run: npx firebase-tools deploy --only functions:updateDashboard --project ${{ secrets.FIREBASE_PROJECT }}
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.FIREBASE_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
           
