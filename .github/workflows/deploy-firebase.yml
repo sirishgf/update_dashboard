@@ -31,7 +31,7 @@ jobs:
         continue-on-error: true
         run: npx firebase-tools deploy --only functions:updateDashboard --project ${{ secrets.FIREBASE_PROJECT }}
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Deploy function to Firebase
         id: retry-deploy-step
@@ -39,7 +39,7 @@ jobs:
         if: steps.initial-deploy-step.outcome == 'failure'
         run: npx firebase-tools deploy --only functions:updateDashboard --project ${{ secrets.FIREBASE_PROJECT }} --debug
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          FIREBASE_TOKEN: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         
       
           
