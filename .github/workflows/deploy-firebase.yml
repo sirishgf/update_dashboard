@@ -20,11 +20,11 @@ jobs:
         working-directory: .
         run: npm install
 
-      - name: Authenticate to Google Cloud
-        id: auth
-        uses: google-github-actions/auth@v1
-        with:
-          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+      # - name: Authenticate to Google Cloud
+      #   id: auth
+      #   uses: google-github-actions/auth@v1
+      #   with:
+      #     credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         
       - name: Deploy function to Firebase
         id: initial-deploy-step
