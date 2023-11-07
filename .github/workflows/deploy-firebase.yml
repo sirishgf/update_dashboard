@@ -20,18 +20,18 @@ jobs:
         working-directory: .
         run: npm install
 
-      # - name: Authenticate to Google Cloud
-      #   id: auth
-      #   uses: google-github-actions/auth@v1
-      #   with:
-      #     credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         
       - name: Deploy function to Firebase
         id: initial-deploy-step
         continue-on-error: true
         run: npx firebase-tools deploy --only functions:updateDashboard --project ${{ secrets.FIREBASE_PROJECT }}
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
       - name: Deploy function to Firebase
         id: retry-deploy-step
@@ -39,7 +39,7 @@ jobs:
         if: steps.initial-deploy-step.outcome == 'failure'
         run: npx firebase-tools deploy --only functions:updateDashboard --project ${{ secrets.FIREBASE_PROJECT }} --debug
         env:
-          FIREBASE_TOKEN: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         
       
           
