@@ -17,7 +17,7 @@ jobs:
           node-version: '16'
 
       - name: Download dependencies
-        working-directory: .
+        working-directory: functions
         run: npm install
 
       - name: Authenticate to Google Cloud
