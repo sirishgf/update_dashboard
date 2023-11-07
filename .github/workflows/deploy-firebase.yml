@@ -16,9 +16,9 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Download dependencies
-        working-directory: functions
-        run: npm install
+      # - name: Download dependencies
+      #   working-directory: functions
+      #   run: npm install
 
       - name: Authenticate to Google Cloud
         id: auth
@@ -29,7 +29,7 @@ jobs:
       - name: Deploy function to Firebase
         id: initial-deploy-step
         continue-on-error: true
-        run: npx firebase-tools deploy --only functions --project ${{ secrets.FIREBASE_PROJECT }}
+        run: npm ci && npx firebase-tools deploy --only functions --project ${{ secrets.FIREBASE_PROJECT }}
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path  }}
 
@@ -37,7 +37,7 @@ jobs:
         id: retry-deploy-step
 
         if: steps.initial-deploy-step.outcome == 'failure'
-        run: npx firebase-tools deploy --only functions --project ${{ secrets.FIREBASE_PROJECT }} --debug
+        run: npm ci && npx firebase-tools deploy --only functions --project ${{ secrets.FIREBASE_PROJECT }} --debug
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
         
