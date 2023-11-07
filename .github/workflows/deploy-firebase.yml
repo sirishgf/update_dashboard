@@ -17,7 +17,7 @@ jobs:
           node-version: '16'
 
       - name: Download dependencies
-        working-directory: functions
+        working-directory: .
         run: find ./* -maxdepth 1 -name package.json -execdir npm ci\;
 
       - name: Authenticate to Google Cloud
