@@ -18,7 +18,7 @@ jobs:
 
       - name: Download dependencies
         working-directory: .
-        run: find ./* -maxdepth 1 -name package.json -execdir npm ci\;
+        run: find ./* -maxdepth 1 -name package.json -execdir npm ci \;
 
       - name: Authenticate to Google Cloud
         id: auth
