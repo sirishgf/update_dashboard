@@ -61,7 +61,7 @@ function getUniqueValues(arr) {
   });
 }
 
-exports.updateDashboard = functions.firestore
+exports.updateDashboard2 = functions.firestore
     .document("doctors_procedures/{doctors_procedures_id}")
     .onWrite(async (change, context) => {
       logger.info(change, "@change");
