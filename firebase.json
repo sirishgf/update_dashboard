@@ -1,8 +1,8 @@
 {
   "functions": [
     {
-      "source": ".",
-      "codebase": "default",
+      "source": "functions",
+      "codebase": "update-dashboard",
       "ignore": [
         "node_modules",
         ".git",

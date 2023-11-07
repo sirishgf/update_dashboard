@@ -1,0 +1,1120 @@
+[debug] [2023-10-27T09:18:17.957Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:18:17.958Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:18:17.958Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:18:17.959Z] Platform:      linux
+[debug] [2023-10-27T09:18:17.959Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:18:17.959Z] Time:          Fri Oct 27 2023 15:03:17 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:18:17.959Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:18:17.999Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:18:17.999Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:18:17.999Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:18:18.001Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:18:18.001Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:18:18.001Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:18:19.715Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:18:19.715Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:18:19.716Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:18:19.716Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:18:21.325Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:18:21.325Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:18:21.832Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:18:22.474Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:18:22.474Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:18:22.475Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:18:22.475Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:18:22.476Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:18:22.476Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:18:22.476Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:18:22.477Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:18:22.477Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:18:22.477Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:18:24.531Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:18:24.531Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:18:24.531Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:18:24.532Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:18:24.533Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:18:24.533Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:18:24.534Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:18:24.534Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:18:24.534Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:18:25.141Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:18:25.142Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:18:25.143Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:18:25.854Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:18:25.855Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:18:25.858Z] Validating nodejs source
+[debug] [2023-10-27T09:18:26.173Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:18:26.174Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:18:26.175Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:18:26.178Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8826
+
+[debug] [2023-10-27T09:18:26.345Z] Got response code 400; body Failed to generate manifest from function source: Error: The default Firebase app already exists. This means you called initializeApp() more than once without providing an app name as the second argument. In most cases you only need to call initializeApp() once. But if you do want to initialize multiple apps, pass a second argument to initializeApp() to give each app a unique name.
+[info] shutdown requested via /__/quitquitquit
+
+[error] 
+[error] Error: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error
+[debug] [2023-10-27T09:24:31.618Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:24:31.619Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:24:31.619Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:24:31.619Z] Platform:      linux
+[debug] [2023-10-27T09:24:31.619Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:24:31.620Z] Time:          Fri Oct 27 2023 15:09:31 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:24:31.620Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:24:31.668Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:24:31.669Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:24:31.669Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:24:31.670Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:24:31.670Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:24:31.670Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:24:33.833Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:24:33.834Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:24:33.834Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:24:33.834Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:24:35.722Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:24:35.722Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[error] 
+[error] Error: functions predeploy error: Command terminated with non-zero exit code 1
+[debug] [2023-10-27T09:29:10.549Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:29:10.550Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:29:10.550Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:29:10.550Z] Platform:      linux
+[debug] [2023-10-27T09:29:10.550Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:29:10.550Z] Time:          Fri Oct 27 2023 15:14:10 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:29:10.550Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:29:10.591Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:29:10.592Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:29:10.592Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:29:10.593Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:29:10.593Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:29:10.593Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:29:12.317Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:29:12.317Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:29:12.318Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:29:12.318Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:29:13.949Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:29:13.949Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:29:14.454Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:29:15.285Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:29:15.286Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:29:15.290Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:29:15.290Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:29:15.291Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:29:15.291Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:29:15.292Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:29:15.292Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:29:15.293Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:29:15.293Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:29:17.445Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:29:17.445Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:29:17.446Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:29:17.446Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:29:17.446Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:29:17.447Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:29:17.447Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:29:17.448Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:29:17.448Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:29:18.045Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:29:18.045Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:29:18.045Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:29:19.005Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:29:19.006Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:29:19.008Z] Validating nodejs source
+[debug] [2023-10-27T09:29:19.359Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:29:19.359Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:29:19.361Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:29:19.365Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8398
+
+[debug] [2023-10-27T09:29:19.945Z] Got response code 400; body Failed to generate manifest from function source: Error: Cannot find module '@unicode/unicode-15.1.0/Binary_Property/ID_Start/code-points.js'
+Require stack:
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/@babel/helper-validator-identifier/scripts/generate-identifier-regex.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/index.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/runtime/loader.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js
+[info] shutdown requested via /__/quitquitquit
+
+[error] 
+[error] Error: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error
+[debug] [2023-10-27T09:30:00.539Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:30:00.540Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:30:00.540Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:30:00.540Z] Platform:      linux
+[debug] [2023-10-27T09:30:00.540Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:30:00.541Z] Time:          Fri Oct 27 2023 15:15:00 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:30:00.541Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:30:00.584Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:30:00.585Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:30:00.585Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:30:00.587Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:30:00.587Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:30:00.587Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:30:02.248Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:30:02.249Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:30:02.249Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:30:02.249Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:30:03.926Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:30:03.926Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:30:04.444Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:30:05.255Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:30:05.255Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:30:05.256Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:30:05.256Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:30:05.258Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:30:05.258Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:30:05.258Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:30:05.258Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:30:05.259Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:30:05.259Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:30:07.314Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:30:07.314Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:30:07.315Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:30:07.315Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:30:07.316Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:30:07.316Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:30:07.316Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:30:07.317Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:30:07.317Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:30:07.996Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:30:07.997Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:30:07.998Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:30:11.405Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:30:11.406Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:30:11.409Z] Validating nodejs source
+[debug] [2023-10-27T09:30:12.147Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:30:12.148Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:30:12.149Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:30:12.151Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8434
+
+[debug] [2023-10-27T09:30:12.470Z] Got response code 400; body Failed to generate manifest from function source: Error: Cannot find module '@unicode/unicode-15.1.0/Binary_Property/ID_Start/code-points.js'
+Require stack:
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/@babel/helper-validator-identifier/scripts/generate-identifier-regex.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/index.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/runtime/loader.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js
+[info] shutdown requested via /__/quitquitquit
+
+[error] 
+[error] Error: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error
+[debug] [2023-10-27T09:30:57.246Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:30:57.247Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:30:57.247Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:30:57.247Z] Platform:      linux
+[debug] [2023-10-27T09:30:57.247Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:30:57.247Z] Time:          Fri Oct 27 2023 15:15:57 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:30:57.247Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:30:57.295Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:30:57.296Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:30:57.296Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:30:57.298Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:30:57.298Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:30:57.298Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:31:06.269Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:31:06.270Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:31:06.271Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:31:06.271Z] Platform:      linux
+[debug] [2023-10-27T09:31:06.271Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:31:06.271Z] Time:          Fri Oct 27 2023 15:16:06 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:31:06.271Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:31:06.311Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:31:06.312Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:31:06.312Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:31:06.313Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:31:06.314Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:31:06.314Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:31:07.923Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:31:07.924Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:31:07.924Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:31:07.924Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:31:09.561Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:31:09.561Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:31:10.072Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:31:10.692Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:31:10.693Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:31:10.695Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:31:10.695Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:31:10.697Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:31:10.697Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:31:10.698Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:31:10.698Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:31:10.699Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:31:10.699Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:31:12.637Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:31:12.637Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:31:12.639Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:31:12.639Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:31:12.639Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:31:12.640Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:31:12.640Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:31:12.640Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:31:12.641Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:31:13.250Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:31:13.251Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:31:13.252Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:31:13.968Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:31:13.969Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:31:13.971Z] Validating nodejs source
+[debug] [2023-10-27T09:31:14.290Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:31:14.290Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:31:14.291Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:31:14.295Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8586
+
+[debug] [2023-10-27T09:31:14.665Z] Got response code 400; body Failed to generate manifest from function source: Error: Cannot find module '@unicode/unicode-15.1.0/Binary_Property/ID_Start/code-points.js'
+Require stack:
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/@babel/helper-validator-identifier/scripts/generate-identifier-regex.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/index.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/runtime/loader.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js
+[info] shutdown requested via /__/quitquitquit
+
+[error] 
+[error] Error: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error
+[debug] [2023-10-27T09:33:28.520Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:33:28.521Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:33:28.521Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:33:28.522Z] Platform:      linux
+[debug] [2023-10-27T09:33:28.522Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:33:28.522Z] Time:          Fri Oct 27 2023 15:18:28 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:33:28.522Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:33:28.567Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:33:28.568Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:33:28.568Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:33:28.569Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:33:28.569Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:33:28.569Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:33:29.096Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:33:29.096Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:33:29.097Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:33:29.097Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:33:29.813Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:33:29.813Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:33:30.320Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:33:31.478Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:33:31.478Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:33:31.480Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:33:31.480Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:33:31.481Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:33:31.482Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:33:31.483Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:33:31.483Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:33:31.484Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:33:31.484Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:33:33.439Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:33:33.439Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:33:33.440Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:33:33.440Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:33:33.497Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:33:33.498Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:33:33.999Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:33:34.000Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:33:34.001Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:33:34.665Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:33:34.665Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:33:34.666Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:33:35.380Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:33:35.380Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:33:35.382Z] Validating nodejs source
+[debug] [2023-10-27T09:33:40.759Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "files": "^2.2.2",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:33:40.759Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:33:40.761Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:33:40.765Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8311
+
+[debug] [2023-10-27T09:33:40.934Z] Got response code 400; body Failed to generate manifest from function source: Error: Cannot find module 'updateDashboard2.js'
+Require stack:
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/index.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/runtime/loader.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js
+[info] shutdown requested via /__/quitquitquit
+
+[error] 
+[error] Error: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error
+[debug] [2023-10-27T09:37:17.459Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:37:17.460Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:37:17.460Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:37:17.461Z] Platform:      linux
+[debug] [2023-10-27T09:37:17.461Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:37:17.461Z] Time:          Fri Oct 27 2023 15:22:17 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:37:17.461Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:37:17.500Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:37:17.501Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:37:17.501Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:37:17.502Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:37:17.502Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:37:17.503Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:37:19.373Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:37:19.373Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:37:19.373Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:37:19.373Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:37:21.061Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:37:21.061Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:37:21.573Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:37:22.609Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:37:22.609Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:37:22.612Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:37:22.612Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:37:22.614Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:37:22.614Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:37:22.615Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:37:22.615Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:37:22.616Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:37:22.616Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:37:24.768Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:37:24.768Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:37:24.770Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:37:24.770Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:37:24.771Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:37:24.771Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:37:24.772Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:37:24.772Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:37:24.773Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:37:25.575Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:37:25.575Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:37:25.576Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:37:26.394Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:37:26.395Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:37:26.396Z] Validating nodejs source
+[debug] [2023-10-27T09:37:28.061Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "files": "^2.2.2",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:37:28.061Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:37:28.062Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:37:28.064Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8684
+
+[debug] [2023-10-27T09:37:28.148Z] Got response code 400; body Failed to generate manifest from function source: Error: Cannot find module 'updateDashboard'
+Require stack:
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/index.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/runtime/loader.js
+- /home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js
+[info] shutdown requested via /__/quitquitquit
+
+[error] 
+[error] Error: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error
+[debug] [2023-10-27T09:38:03.824Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:38:03.825Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:38:03.826Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:38:03.826Z] Platform:      linux
+[debug] [2023-10-27T09:38:03.826Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:38:03.826Z] Time:          Fri Oct 27 2023 15:23:03 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:38:03.826Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:38:03.867Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:38:03.868Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:38:03.868Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:38:03.869Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:38:03.869Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:38:03.870Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:38:05.521Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:38:05.522Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:38:05.522Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:38:05.522Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:38:06.332Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:38:06.332Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:38:06.856Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:38:08.280Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:38:08.281Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:38:08.283Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:38:08.284Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:38:08.285Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:38:08.285Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:38:08.287Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:38:08.287Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:38:08.288Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:38:08.288Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:38:10.231Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:38:10.232Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:38:10.232Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:38:10.232Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:38:10.252Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:38:10.252Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:38:10.257Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:38:10.257Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:38:10.258Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:38:10.840Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:38:10.840Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:38:10.842Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:38:11.437Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:38:11.438Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:38:11.440Z] Validating nodejs source
+[debug] [2023-10-27T09:38:11.756Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "files": "^2.2.2",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:38:11.757Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:38:11.758Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:38:11.761Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8187
+
+[debug] [2023-10-27T09:38:11.930Z] Got response code 400; body Failed to generate manifest from function source: Error: The default Firebase app already exists. This means you called initializeApp() more than once without providing an app name as the second argument. In most cases you only need to call initializeApp() once. But if you do want to initialize multiple apps, pass a second argument to initializeApp() to give each app a unique name.
+[info] shutdown requested via /__/quitquitquit
+
+[error] 
+[error] Error: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error
+[debug] [2023-10-27T09:39:18.643Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:39:18.644Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:39:18.645Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:39:18.645Z] Platform:      linux
+[debug] [2023-10-27T09:39:18.645Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:39:18.645Z] Time:          Fri Oct 27 2023 15:24:18 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:39:18.645Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:39:18.685Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:39:18.686Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:39:18.686Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:39:18.687Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:39:18.687Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:39:18.688Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:39:20.374Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:39:20.375Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:39:20.375Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:39:20.375Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:39:22.013Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:39:22.013Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:39:22.518Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:39:24.575Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:39:24.575Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:39:24.577Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:39:24.577Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:39:24.579Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:39:24.579Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:39:24.580Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:39:24.580Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:39:24.581Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:39:24.581Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:39:26.515Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:39:26.515Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:39:26.517Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:39:26.518Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:39:26.541Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:39:26.542Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:39:26.597Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:39:26.597Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:39:26.598Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:39:27.233Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:39:27.234Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:39:27.235Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:39:27.846Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:39:27.846Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:39:27.847Z] Validating nodejs source
+[debug] [2023-10-27T09:39:28.190Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "files": "^2.2.2",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:39:28.191Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:39:28.191Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:39:28.194Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8056
+
+[debug] [2023-10-27T09:39:28.377Z] Got response code 400; body Failed to generate manifest from function source: Error: Invalid Firebase app options passed as the first argument to initializeApp() for the app named "[DEFAULT]". Options must be a non-null object.
+[info] shutdown requested via /__/quitquitquit
+
+[error] 
+[error] Error: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error
+[debug] [2023-10-27T09:41:59.066Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:41:59.067Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:41:59.067Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:41:59.067Z] Platform:      linux
+[debug] [2023-10-27T09:41:59.067Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:41:59.067Z] Time:          Fri Oct 27 2023 15:26:59 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:41:59.068Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:41:59.109Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:41:59.109Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:41:59.110Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:41:59.111Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:41:59.111Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:41:59.111Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:42:00.805Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:42:00.806Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:42:00.806Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:42:00.806Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:42:02.385Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:42:02.385Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[error] 
+[error] Error: functions predeploy error: Command terminated with non-zero exit code 1
+[debug] [2023-10-27T09:45:23.371Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T09:45:23.372Z] Command:       /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/node /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/bin/firebase deploy --only functions:updateDashboard --project proctrac --debug
+[debug] [2023-10-27T09:45:23.373Z] CLI Version:   12.7.0
+[debug] [2023-10-27T09:45:23.373Z] Platform:      linux
+[debug] [2023-10-27T09:45:23.373Z] Node Version:  v18.16.0
+[debug] [2023-10-27T09:45:23.373Z] Time:          Fri Oct 27 2023 15:30:23 GMT+0545 (Nepal Time)
+[debug] [2023-10-27T09:45:23.373Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T09:45:23.414Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T09:45:23.415Z] > authorizing via signed-in user (sirish@gritfeat.com)
+[debug] [2023-10-27T09:45:23.415Z] [iam] checking project proctrac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-10-27T09:45:23.416Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions [none]
+[debug] [2023-10-27T09:45:23.416Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:45:23.416Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:45:25.141Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions 200
+[debug] [2023-10-27T09:45:25.141Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/proctrac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-10-27T09:45:25.141Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T09:45:25.141Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-10-27T09:45:26.863Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-10-27T09:45:26.864Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/proctrac/serviceAccounts/proctrac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'proctrac'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2023-10-27T09:45:27.395Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:45:28.199Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:45:28.199Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-10-27T09:45:28.202Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-10-27T09:45:28.202Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:45:28.204Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-10-27T09:45:28.204Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:45:28.206Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [none]
+[debug] [2023-10-27T09:45:28.206Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:45:28.207Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [none]
+[debug] [2023-10-27T09:45:28.207Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com x-goog-quota-user=projects/proctrac
+[debug] [2023-10-27T09:45:30.346Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com 200
+[debug] [2023-10-27T09:45:30.346Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-10-27T09:45:30.347Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com 200
+[debug] [2023-10-27T09:45:30.347Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-10-27T09:45:30.351Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com 200
+[debug] [2023-10-27T09:45:30.351Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-10-27T09:45:30.373Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com 200
+[debug] [2023-10-27T09:45:30.373Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/proctrac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-10-27T09:45:30.374Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig [none]
+[debug] [2023-10-27T09:45:31.063Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig 200
+[debug] [2023-10-27T09:45:31.063Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac/adminSdkConfig {"projectId":"proctrac","storageBucket":"proctrac.appspot.com"}
+[debug] [2023-10-27T09:45:31.064Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs [none]
+[debug] [2023-10-27T09:45:32.090Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs 200
+[debug] [2023-10-27T09:45:32.091Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/proctrac/configs {}
+[debug] [2023-10-27T09:45:32.093Z] Validating nodejs source
+[debug] [2023-10-27T09:45:32.473Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "files": "^2.2.2",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-10-27T09:45:32.474Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2023-10-27T09:45:32.475Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T09:45:32.478Z] Found firebase-functions binary at '/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8867
+
+[error] {"severity":"WARNING","message":"FirebaseAppError: The default Firebase app already exists. This means you called initializeApp() more than once without providing an app name as the second argument. In most cases you only need to call initializeApp() once. But if you do want to initialize multiple apps, pass a second argument to initializeApp() to give each app a unique name.\n    at AppStore.initializeApp (/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-admin/lib/app/lifecycle.js:41:23)\n    at FirebaseNamespaceInternals.initializeApp (/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-admin/lib/app/firebase-namespace.js:43:35)\n    at FirebaseNamespace.initializeApp (/home/sirish@gritfeat.com/Desktop/proctrac/functions/node_modules/firebase-admin/lib/app/firebase-namespace.js:246:30)\n    at Object.<anonymous> (/home/sirish@gritfeat.com/Desktop/proctrac/functions/updateDashboard2.js:12:9)\n    at Module._compile (node:internal/modules/cjs/loader:1254:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)\n    at Module.load (node:internal/modules/cjs/loader:1117:32)\n    at Module._load (node:internal/modules/cjs/loader:958:12)\n    at Module.require (node:internal/modules/cjs/loader:1141:19)\n    at require (node:internal/modules/cjs/helpers:110:18) {\n  errorInfo: {\n    code: 'app/duplicate-app',\n    message: 'The default Firebase app already exists. This means you called initializeApp() more than once without providing an app name as the second argument. In most cases you only need to call initializeApp() once. But if you do want to initialize multiple apps, pass a second argument to initializeApp() to give each app a unique name.'\n  },\n  codePrefix: 'app'\n}"}
+
+[debug] [2023-10-27T09:45:32.650Z] Got response from /__/functions.yaml {"endpoints":{"updateDashboard-updateDashboard":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","eventFilters":{"resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"retry":false},"labels":{},"entryPoint":"updateDashboard.updateDashboard"},"updateDashboard2-updateDashboard2":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.create","eventFilters":{"resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"retry":false},"labels":{},"entryPoint":"updateDashboard2.updateDashboard2"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] shutdown requested via /__/quitquitquit
+
+[info] i  functions: preparing . directory for uploading... 
+[info] i  functions: packaged /home/sirish@gritfeat.com/Desktop/proctrac/functions (81.51 KB) for uploading 
+[debug] [2023-10-27T09:45:32.693Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/-/functions [none]
+[debug] [2023-10-27T09:45:33.825Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/-/functions 200
+[debug] [2023-10-27T09:45:33.826Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/-/functions {"functions":[{"name":"projects/proctrac/locations/us-central1/functions/updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.write","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}","service":"firestore.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"updateDashboard","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"proctrac@appspot.gserviceaccount.com","updateTime":"2023-10-18T09:22:20.319Z","versionId":"25","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"4eec88ca97ca20692e5c5163c92da2819a962d51"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/a47fe1a6-4034-4808-8542-bafcdde666b2.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard"},"runtime":"nodejs18","maxInstances":3000,"ingressSettings":"ALLOW_ALL","buildId":"f23f4910-12f9-4194-afbe-0a355aa490cd","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/212069799579/locations/us-central1/builds/f23f4910-12f9-4194-afbe-0a355aa490cd","dockerRegistry":"ARTIFACT_REGISTRY"}]}
+[debug] [2023-10-27T09:45:33.828Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/proctrac/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2023-10-27T09:45:35.746Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/proctrac/locations/-/functions 200
+[debug] [2023-10-27T09:45:35.746Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/proctrac/locations/-/functions {}
+[debug] [2023-10-27T09:45:35.749Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/proctrac [none]
+[debug] [2023-10-27T09:45:36.385Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/proctrac 200
+[debug] [2023-10-27T09:45:36.386Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/proctrac {"projectId":"proctrac","projectNumber":"212069799579","displayName":"proctrac","name":"projects/proctrac","resources":{"hostingSite":"proctrac"},"state":"ACTIVE","etag":"1_26117eaf-ebd4-48f8-b16e-f60f22343fc5"}
+[debug] [2023-10-27T09:45:36.391Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2023-10-27T09:45:36.392Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2023-10-27T09:45:37.413Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2023-10-27T09:45:37.414Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D"}
+[debug] [2023-10-27T09:45:37.416Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip GoogleAccessId=service-212069799579%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D
+[debug] [2023-10-27T09:45:37.416Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip [stream]
+[debug] [2023-10-27T09:45:38.872Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip 200
+[debug] [2023-10-27T09:45:38.872Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip [omitted]
+[info] ✔  functions: . folder uploaded successfully 
+[info] 
+The following functions are found in your project but do not exist in your local source code:
+	updateDashboard(us-central1)
+
+If you are renaming a function or changing its region, it is recommended that you create the new function first before deleting the old one to prevent event loss. For more info, visit https://firebase.google.com/docs/functions/manage-functions#modify
+
+[info] i  functions: creating Node.js 18 (1st Gen) function updateDashboard-updateDashboard(us-central1)... 
+[debug] [2023-10-27T09:46:10.529Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/us-central1/functions [none]
+[debug] [2023-10-27T09:46:10.529Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/us-central1/functions {"name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","entryPoint":"updateDashboard.updateDashboard","runtime":"nodejs18","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"serviceAccountEmail":null,"availableMemoryMb":null,"timeout":null,"vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2023-10-27T09:46:11.429Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/us-central1/functions 200
+[debug] [2023-10-27T09:46:11.429Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/proctrac/locations/us-central1/functions {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z"}}
+[debug] [2023-10-27T09:46:11.430Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:46:12.070Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:46:12.070Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z"}}
+[debug] [2023-10-27T09:46:12.571Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:46:12.572Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:46:13.352Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:46:13.352Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:46:14.353Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:46:14.354Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:46:15.096Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:46:15.096Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:46:17.097Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:46:17.099Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:46:17.758Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:46:17.758Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:46:21.761Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:46:21.762Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:46:22.469Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:46:22.469Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:46:30.477Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:46:30.478Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:46:31.137Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:46:31.137Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:46:41.147Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:46:41.148Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:46:41.821Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:46:41.821Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:46:51.829Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:46:51.830Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:46:52.473Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:46:52.474Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:47:02.485Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:47:02.486Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:47:03.126Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:47:03.126Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:47:13.134Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:47:13.135Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:47:13.747Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:47:13.748Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:46:11Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","sourceToken":"2b553292-6eab-4486-ac25-3e3b3a4a782d","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"}}
+[debug] [2023-10-27T09:47:13.748Z] Got source token 2b553292-6eab-4486-ac25-3e3b3a4a782d for region us-central1
+[debug] [2023-10-27T09:47:23.758Z] [create-default-us-central1-updateDashboard-updateDashboard] Retrying task index 0
+[debug] [2023-10-27T09:47:23.758Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ [none]
+[debug] [2023-10-27T09:47:24.421Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ 200
+[debug] [2023-10-27T09:47:24.421Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ {"name":"operations/cHJvY3RyYWMvdXMtY2VudHJhbDEvdXBkYXRlRGFzaGJvYXJkLXVwZGF0ZURhc2hib2FyZC9FZEoyUHVYNElJTQ","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"},"entryPoint":"updateDashboard.updateDashboard","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1037888324483.us-central1.cloudfunctions.appspot.com/d78b13ed-cf02-4a46-92ea-ad5219ff75e7.zip?GoogleAccessId=service-212069799579@gcf-admin-robot.iam.gserviceaccount.com&Expires=1698401737&Signature=btZH96YKvHHjXbQPsZGkcnssB3lbqql%2B2U4Wngv33ZA%2FnCuaSq%2F0MELzreAvwaeKbqSKyLu%2Fww35TZz98%2FdzczsZCfk9FxgmqP21VoMC5L%2FmfOEbvgq%2BisSB3VhBmCvX3YyYTgEKhji661rC1ue9SkEnL2HaVZcPppFQqRJ0oCmq2EMHEfmVRVR2abOeHdBYodRvHaWZYu9TbFM53fg9v%2F6Gcn262JccI6yq0cQ905cw4Gw%2FEsKMDJexq6lvPcCL4DX8SvEFkv7akcsQQaL%2Bx0atOgVMqi5%2FD7x1ZnAj7jnM2TGMv7c8udV2qeGGxOrH8aMrtG7Fyh7rlKI5uG%2FZww%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}","GCLOUD_PROJECT":"proctrac","EVENTARC_CLOUD_EVENT_SOURCE":"projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"},"runtime":"nodejs18","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2023-10-27T09:47:19Z","buildId":"eeaeb113-3f31-453a-92f0-8330af068309","sourceToken":"2b553292-6eab-4486-ac25-3e3b3a4a782d","buildName":"projects/212069799579/locations/us-central1/builds/eeaeb113-3f31-453a-92f0-8330af068309"},"done":true,"error":{"code":3,"message":"Function failed on loading user code. This is likely due to a bug in the user code. Error message: Function 'updateDashboard.updateDashboard' is not defined in the provided module.\nDid you specify the correct target function to execute?\nCould not load the function, shutting down.. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation."}}
+[debug] [2023-10-27T09:47:24.421Z] Got source token 2b553292-6eab-4486-ac25-3e3b3a4a782d for region us-central1
+[error] Function failed on loading user code. This is likely due to a bug in the user code. Error message: Function 'updateDashboard.updateDashboard' is not defined in the provided module.
+Did you specify the correct target function to execute?
+Could not load the function, shutting down.. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation.
+[debug] [2023-10-27T09:47:24.423Z] Total Function Deployment time: 73895
+[debug] [2023-10-27T09:47:24.423Z] 1 Functions Deployed
+[debug] [2023-10-27T09:47:24.423Z] 1 Functions Errored
+[debug] [2023-10-27T09:47:24.423Z] 0 Function Deployments Aborted
+[debug] [2023-10-27T09:47:24.423Z] Average Function Deployment time: 73894
+[info] 
+[info] Functions deploy had errors with the following functions:
+	updateDashboard-updateDashboard(us-central1)
+[info] i  functions: cleaning up build files... 
+[debug] [2023-10-27T09:47:24.425Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/repositories/gcf-artifacts/packages/update_dashboard--update_dashboard [none]
+[debug] [2023-10-27T09:47:24.426Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/repositories/gcf-artifacts/packages/update_dashboard2--update_dashboard2 [none]
+[debug] [2023-10-27T09:47:24.427Z] >>> [apiv2][query] GET https://us.gcr.io/v2/proctrac/gcf/us-central1/tags/list [none]
+[debug] [2023-10-27T09:47:25.445Z] <<< [apiv2][status] GET https://us.gcr.io/v2/proctrac/gcf/us-central1/tags/list 200
+[debug] [2023-10-27T09:47:25.445Z] <<< [apiv2][body] GET https://us.gcr.io/v2/proctrac/gcf/us-central1/tags/list {"child":[],"manifest":{},"name":"proctrac/gcf/us-central1","tags":[]}
+[debug] [2023-10-27T09:47:25.446Z] Could not find image for function projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard
+[debug] [2023-10-27T09:47:25.446Z] Could not find image for function projects/proctrac/locations/us-central1/functions/updateDashboard2-updateDashboard2
+[debug] [2023-10-27T09:47:26.238Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/repositories/gcf-artifacts/packages/update_dashboard2--update_dashboard2 404
+[debug] [2023-10-27T09:47:26.238Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/repositories/gcf-artifacts/packages/update_dashboard2--update_dashboard2 {"error":{"code":404,"message":"Package \"projects/proctrac/locations/us-central1/repositories/gcf-artifacts/packages/update_dashboard2--update_dashboard2\" was not found.","status":"NOT_FOUND"}}
+[debug] [2023-10-27T09:47:26.241Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/repositories/gcf-artifacts/packages/update_dashboard--update_dashboard 200
+[debug] [2023-10-27T09:47:26.241Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/repositories/gcf-artifacts/packages/update_dashboard--update_dashboard {"name":"projects/proctrac/locations/us-central1/operations/0b0fb666-5b5b-4a55-93c8-ce176597e9dd","metadata":{"@type":"type.googleapis.com/google.devtools.artifactregistry.v1beta2.OperationMetadata"}}
+[debug] [2023-10-27T09:47:26.241Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/operations/0b0fb666-5b5b-4a55-93c8-ce176597e9dd [none]
+[debug] [2023-10-27T09:47:27.884Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/operations/0b0fb666-5b5b-4a55-93c8-ce176597e9dd 200
+[debug] [2023-10-27T09:47:27.884Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1beta2/projects/proctrac/locations/us-central1/operations/0b0fb666-5b5b-4a55-93c8-ce176597e9dd {"name":"projects/proctrac/locations/us-central1/operations/0b0fb666-5b5b-4a55-93c8-ce176597e9dd","metadata":{"@type":"type.googleapis.com/google.devtools.artifactregistry.v1beta2.OperationMetadata"},"done":true,"response":{"@type":"type.googleapis.com/google.protobuf.Empty"}}
+[debug] [2023-10-27T09:47:27.885Z] Functions deploy failed.
+[debug] [2023-10-27T09:47:27.885Z] {
+  "endpoint": {
+    "id": "updateDashboard-updateDashboard",
+    "project": "proctrac",
+    "region": "us-central1",
+    "entryPoint": "updateDashboard.updateDashboard",
+    "platform": "gcfv1",
+    "runtime": "nodejs18",
+    "eventTrigger": {
+      "eventType": "providers/cloud.firestore/eventTypes/document.update",
+      "retry": false,
+      "eventFilters": {
+        "resource": "projects/proctrac/databases/(default)/documents/doctors_procedures/{doctors_procedures_id}"
+      }
+    },
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "serviceAccount": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"proctrac\",\"storageBucket\":\"proctrac.appspot.com\"}",
+      "GCLOUD_PROJECT": "proctrac",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/proctrac/locations/us-central1/functions/updateDashboard-updateDashboard"
+    },
+    "codebase": "default",
+    "targetedByOnly": true,
+    "hash": "5b2c07fa8a4ee08804cdce3bfd2f00fb49368080"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Function failed on loading user code. This is likely due to a bug in the user code. Error message: Function 'updateDashboard.updateDashboard' is not defined in the provided module.\nDid you specify the correct target function to execute?\nCould not load the function, shutting down.. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation.",
+    "status": 3,
+    "code": 3
+  }
+}
+[debug] [2023-10-27T09:47:27.887Z] Error: Failed to create function updateDashboard-updateDashboard in region us-central1
+    at /home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:51:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Fabricator.createV1Function (/home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:181:32)
+    at async Fabricator.createEndpoint (/home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:133:13)
+    at async handle (/home/sirish@gritfeat.com/.nvm/versions/node/v18.16.0/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:88:17)
+[error] 
+[error] Error: There was an error deploying functions
