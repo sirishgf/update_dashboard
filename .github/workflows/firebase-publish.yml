@@ -34,8 +34,6 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-          create_credentials_file: false
-
         
       - name: Deploy function to Firebase
         id: initial-deploy-step

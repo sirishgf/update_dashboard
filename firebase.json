@@ -8,7 +8,8 @@
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log",
-        "__test__*"
+        "__test__*",
+        "gha-creds-*.json"
       ],
       "predeploy": [
         "npm --prefix \"$RESOURCE_DIR\" run lint"
