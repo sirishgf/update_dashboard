@@ -8,7 +8,9 @@ on:
 jobs:
   integration:
     uses: ./.github/workflows/node-ci-workflow.yml
-
+    permissions:
+      contents: read
+      checks: write
   
   build_and_deploy:
     needs: [integration]
