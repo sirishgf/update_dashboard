@@ -2,12 +2,13 @@
   "name": "update-dashboard",
   "description": "Cloud Functions for Firebase",
   "scripts": {
+    "deploy": "npm ci | firebase-tools deploy --only functions --project $FIREBASE_PROJECT",
     "lint": "eslint .",
+    "logs": "firebase functions:log",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "find ./* -maxdepth 1 -name package.json -execdir npm ci \\; | npx firebase-tools deploy --only functions --project $FIREBASE_PROJECT",
-    "logs": "firebase functions:log"
+    "test": "jest --ci --reporters=default --reporters=jest-junit --coverage"
   },
   "engines": {
     "node": "18"

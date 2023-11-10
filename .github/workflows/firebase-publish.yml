@@ -2,7 +2,7 @@ name: Deploy to Firebase Functions
 run-name: ${{ github.actor }} pushed to branch and triggered deploy
 on:
   push:
-    branches: ["main" , "feature/*"]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:

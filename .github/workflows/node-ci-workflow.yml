@@ -1,6 +1,8 @@
 name: Deploy to Firebase Functions via github action
 
 on:
+  push:
+    branches: ["feature/*"]
   workflow_call:
 
 jobs:
