@@ -1,26 +1,18 @@
 {
   "functions": [
     {
-      "source": "update-dashboard",
+      "source": "src",
       "codebase": "update-dashboard",
       "ignore": [
         "node_modules",
         ".git",
         "firebase-debug.log",
-        "firebase-debug.*.log"
+        "firebase-debug.*.log",
+        "__tests__*",
+        "gha-creds-*.json"
       ],
       "predeploy": [
         "npm --prefix \"$RESOURCE_DIR\" run lint"
-      ]
-    },
-    {
-      "source": "update-dashboard-2",
-      "codebase": "update-dashboard-2",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
       ]
     }
   ],

@@ -1,0 +1,41 @@
+# This workflow will build and test a Node.js project
+name: Deploy to Firebase Functions via github action
+
+on:
+  push:
+    branches: ["feature/*"]
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
+    permissions:
+        checks: write
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: .
+        run: find ./* -maxdepth 1 -name package.json -execdir npm ci \;
+
+      - name: Lint with ESLint
+        run: DEBUG=eslint:cli-engine npx eslint .
+
+      - name: Test with Jest
+        run: npx jest -c ./src/jest.config.js --ci --coverage --reporters=default --reporters=jest-junit 
+
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v3
+        if: success() || failure()
+        with:
+          report_paths: '**/junit.xml'
+          detailed_summary: true
+          include_passed: true
