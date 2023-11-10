@@ -1,3 +1,4 @@
+# This workflow will build and test a Node.js project
 name: Deploy to Firebase Functions via github action
 
 on:

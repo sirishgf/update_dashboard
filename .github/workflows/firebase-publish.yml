@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 5
 
+    environment: dev
+
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node v18
@@ -38,7 +40,7 @@ jobs:
       - name: Deploy function to Firebase
         id: initial-deploy-step
         continue-on-error: true
-        run: npx firebase-tools deploy --only functions --project ${{ secrets.FIREBASE_PROJECT }}
+        run: npx firebase-tools deploy --only functions --project ${{ vars.FIREBASE_PROJECT }}
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path  }}
 
@@ -46,7 +48,7 @@ jobs:
         id: retry-deploy-step
 
         if: steps.initial-deploy-step.outcome == 'failure'
-        run: npx firebase-tools deploy --only functions --project ${{ secrets.FIREBASE_PROJECT }} --debug
+        run: npx firebase-tools deploy --only functions --project ${{ vars.FIREBASE_PROJECT }} --debug
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
         
