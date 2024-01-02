@@ -32,3 +32,10 @@ jobs:
       - name: Test with ava
         id: unit-tests-step
         run: find ./* -maxdepth 2 -name ava.config.js -print0 | xargs -n 1 -0 npx nyc ava
+
+      - name: Upload test artifact
+        id: upload-test-artifact
+        uses: actions/upload-artifact@v4
+        name: my-artifact
+        path: coverage/lcov-report
+        retention-days: 14
