@@ -46,5 +46,7 @@ jobs:
         if: success() || failure()
         with:
           report_paths: 'test.xml'
+          check_name: 'Test report'
+          require_passed_tests: true
           detailed_summary: true
           include_passed: true
