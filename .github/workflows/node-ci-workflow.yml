@@ -29,17 +29,17 @@ jobs:
       - name: Lint with ESLint
         run: DEBUG=eslint:cli-engine npx eslint .
 
-      - name: Test with ava
+      - name: Test with 'ava' and 'nyc'
         id: unit-tests-step
         run: find ./* -maxdepth 2 -name ava.config.js -print0 | xargs --null -I {} npx nyc ava --tap | npx tap-junit > test.xml
 
-      - name: Upload test artifact
-        id: upload-test-artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-artifact
-          path: coverage/lcov-report
-          retention-days: 14
+      # - name: Upload test artifact
+      #   id: upload-test-artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: my-artifact
+      #     path: coverage/lcov-report
+      #     retention-days: 14
       
       - name: Publish test report
         uses: mikepenz/action-junit-report@v4
@@ -50,3 +50,8 @@ jobs:
           require_passed_tests: true
           detailed_summary: true
           include_passed: true
+      
+      - name: Publish test coverage report
+        uses: sidx1024/report-nyc-coverage-github-action@v1.2.7
+        with:
+          coverage_file: "coverage/coverage-summary.json"
