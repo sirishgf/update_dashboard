@@ -4,6 +4,8 @@ name: Deploy to Firebase Functions via github action
 on:
   push:
     branches: ["feature/*"]
+  pull_request:
+    branches: ["feature/*", "main"]
   workflow_call:
 
 jobs:
@@ -34,14 +36,6 @@ jobs:
         id: unit-tests-step
         run: find ./* -maxdepth 2 -name ava.config.js -print0 | xargs --null -I {} npx nyc ava --tap | npx tap-junit > test.xml
 
-      # - name: Upload test artifact
-      #   id: upload-test-artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: my-artifact
-      #     path: coverage/lcov-report
-      #     retention-days: 14
-      
       - name: Publish test report
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
@@ -51,8 +45,40 @@ jobs:
           require_passed_tests: true
           detailed_summary: true
           include_passed: true
+
+      - name: Generate test coverage report
+        id: unit-tests-cov-step
+        run: find ./* -maxdepth 1 -name package.json -print0 | xargs --null -I {} npx nyc report --reporter json-summary --reporter cobertura
       
       - name: Publish test coverage report
         uses: sidx1024/report-nyc-coverage-github-action@v1.2.7
         with:
           coverage_file: "coverage/coverage-summary.json"
+      
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        id: cov-report
+        with:
+          filename: coverage/cobertura-coverage.xml
+          badge: true
+          format: markdown
+          indicators: true
+          output: both
+          thresholds: '60 80'
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: code-coverage-results.md
+      
+
+      - name: Add Coverage check
+        uses: LouisBrunner/checks-action@v1.6.1
+        if: always()
+        with:
+          name: Test coveragec
+          conclusion: ${{ job.status }}
+          output: |
+            {"summary":"${{ steps.cov-report.outputs.summary }}"}
