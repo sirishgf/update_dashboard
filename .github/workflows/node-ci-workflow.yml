@@ -31,7 +31,7 @@ jobs:
 
       - name: Test with ava
         id: unit-tests-step
-        run: find ./* -maxdepth 2 -name ava.config.js -print0 | xargs --null -I {} npx nyc ava | npx tap-junit > test.xml
+        run: find ./* -maxdepth 2 -name ava.config.js -print0 | xargs --null -I {} npx nyc ava --tap | npx tap-junit > test.xml
 
       - name: Upload test artifact
         id: upload-test-artifact
@@ -45,6 +45,6 @@ jobs:
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
-          report_paths: '**/test.xml'
+          report_paths: 'test.xml'
           detailed_summary: true
           include_passed: true
