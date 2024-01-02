@@ -30,4 +30,5 @@ jobs:
         run: DEBUG=eslint:cli-engine npx eslint .
 
       - name: Test with ava
-        run: find ./* -maxdepth 2 -name ava.config.js -execdir npx nyc ava \; 
+        id: unit-tests-step
+        run: find ./* -maxdepth 2 -name ava.config.js -print0 | xargs -n 1 -0 npx nyc ava
