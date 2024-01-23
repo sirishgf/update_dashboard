@@ -75,12 +75,7 @@ jobs:
 
       - name: Add Coverage
         id: test-id
-        run: |
-          {
-            echo 'summary<<='
-            cat code-coverage-results.md
-            echo =
-          } >> "$GITHUB_OUTPUT"
+        run: awk '{printf "%s\\n", $0}' code-coverage-results.md >> "$GITHUB_OUTPUT"
       
       - name: Add d
         id: test-ids
