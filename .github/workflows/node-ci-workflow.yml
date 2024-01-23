@@ -72,8 +72,13 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
-      
 
+      - name: Add Coverage
+        id: test-id
+        run: |
+          echo ${{ steps.cov-report.outputs.summary }}
+          echo ${{ steps.cov-report.outputs }}
+  
       - name: Add Coverage check
         uses: LouisBrunner/checks-action@v1.6.1
         if: always()
