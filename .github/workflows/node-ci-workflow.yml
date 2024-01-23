@@ -81,7 +81,7 @@ jobs:
       - name: Add d
         id: test-ids
         run: |
-          echo ${{ steps.test-id.outputs.summary }}
+          echo "${{ steps.test-id.outputs.summary }}"
 
       - name: Add Coverage check
         uses: LouisBrunner/checks-action@v1.6.1
