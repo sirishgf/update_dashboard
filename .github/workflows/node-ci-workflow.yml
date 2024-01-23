@@ -76,7 +76,7 @@ jobs:
       - name: Add Coverage
         id: test-id
         run: |
-          echo summary=$(echo {"summary":"$(cat code-coverage-results.md)"}) >> "$GITHUB_OUTPUT"
+          echo summary=$(echo '{"summary":"$(cat code-coverage-results.md)"}') >> "$GITHUB_OUTPUT"
       
       - name: Add d
         id: test-ids
