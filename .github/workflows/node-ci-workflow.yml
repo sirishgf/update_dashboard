@@ -76,7 +76,7 @@ jobs:
       - name: Add Coverage
         id: test-id
         run: |
-          echo summary='{"summary": "$(cat code-coverage-results.md)"}' >> "$GITHUB_OUTPUT"
+          echo summary=$(cat code-coverage-results.md) >> "$GITHUB_OUTPUT"
       
       - name: Add d
         id: test-ids
@@ -90,5 +90,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: Test coveragec
           conclusion: ${{ job.status }}
-          output: ${{ steps.test-id.outputs.summary }}
+          output: |
+            {"summary": "${{ steps.test-id.outputs.summary }}"}
             
