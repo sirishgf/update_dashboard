@@ -86,4 +86,4 @@ jobs:
           name: Test coveragec
           conclusion: ${{ job.status }}
           output: |
-            {"summary":"${{ cat code-coverage-results.md }}"}
+            {"summary":"${ cat code-coverage-results.md }"}
