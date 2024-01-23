@@ -86,4 +86,4 @@ jobs:
           name: Test coveragec
           conclusion: ${{ job.status }}
           output: |
-            echo {"summary":"$(cat code-coverage-results.md)"}
+            $(echo {"summary":"$(cat code-coverage-results.md)"})
