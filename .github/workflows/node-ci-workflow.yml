@@ -49,6 +49,10 @@ jobs:
       - name: Generate test coverage report
         id: unit-tests-cov-step
         run: find ./* -maxdepth 1 -name package.json -print0 | xargs --null -I {} npx nyc report --reporter json-summary --reporter cobertura
+
+      - name: Env
+        id: env-step
+        run: printenv
       
       - name: Publish test coverage report
         uses: sidx1024/report-nyc-coverage-github-action@v1.2.7
