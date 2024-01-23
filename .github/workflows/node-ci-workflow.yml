@@ -50,10 +50,10 @@ jobs:
         id: unit-tests-cov-step
         run: find ./* -maxdepth 1 -name package.json -print0 | xargs --null -I {} npx nyc report --reporter json-summary --reporter cobertura
       
-      - name: Publish test coverage report
-        uses: sidx1024/report-nyc-coverage-github-action@v1.2.7
-        with:
-          coverage_file: "coverage/coverage-summary.json"
+      # - name: Publish test coverage report
+      #   uses: sidx1024/report-nyc-coverage-github-action@v1.2.7
+      #   with:
+      #     coverage_file: "coverage/coverage-summary.json"
       
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
@@ -86,4 +86,4 @@ jobs:
           name: Test coveragec
           conclusion: ${{ job.status }}
           output: |
-            {"summary":"${ cat code-coverage-results.md }"}
+            {"summary":"$(cat code-coverage-results.md)"}
