@@ -50,11 +50,15 @@ jobs:
         id: unit-tests-cov-step
         run: find ./* -maxdepth 1 -name package.json -print0 | xargs --null -I {} npx nyc report --reporter lcov --reporter json-summary --reporter cobertura
 
+      - name: Get current datetime
+        id: current-datetime
+        run: echo "::set-output name=datetime::$(date +'%Y-%m-%d_%H-%M-%S')
+
       - name: Upload test artifact
         id: upload-test-artifact
         uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
+          name: test-report-artifact_${{ steps.current-datetime.outputs.datetime }}
           path: coverage/lcov-report
           retention-days: 14
 
