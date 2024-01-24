@@ -37,7 +37,7 @@ jobs:
         run: |
           find ./* -maxdepth 2 -name ava.config.js -print0 | \
             xargs --null -I {} sh -c 'cd "$(dirname "{}")" && \
-            npx nyc --no-clean ava --tap | \
+            npx nyc --temp-dir="../.nyc_output" --no-clean ava --tap | \
             npx tap-junit > test_report.xml'
 
       - name: cwd
