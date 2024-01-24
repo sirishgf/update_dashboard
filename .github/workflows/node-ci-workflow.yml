@@ -73,7 +73,10 @@ jobs:
       #   uses: sidx1024/report-nyc-coverage-github-action@v1.2.7
       #   with:
       #     coverage_file: "coverage/coverage-summary.json"
-      
+
+      - name: cwd2
+        run: echo $(ls -alh) && echo $(ls -alh src)
+        
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         id: cov-report
