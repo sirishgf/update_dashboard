@@ -40,11 +40,14 @@ jobs:
             npx nyc --no-clean ava --tap && \
             npx tap-junit > test_report.xml'
 
+      - name: cwd
+        run: echo $(ls -alh) && echo $(ls -alh src)
+
       - name: Publish test report
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
-          report_paths: '**/test_report.xml'
+          report_paths: '/**/test_report.xml'
           check_name: 'Test report'
           require_passed_tests: true
           detailed_summary: true
