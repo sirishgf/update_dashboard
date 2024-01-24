@@ -47,7 +47,7 @@ jobs:
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
-          report_paths: '/**/test_report.xml'
+          report_paths: '**/test_report.xml'
           check_name: 'Test report'
           require_passed_tests: true
           detailed_summary: true
