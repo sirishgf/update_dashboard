@@ -34,13 +34,17 @@ jobs:
 
       - name: Test with 'ava' and 'nyc'
         id: unit-tests-step
-        run: find ./* -maxdepth 2 -name ava.config.js -print0 | xargs --null -I {} npx nyc ava --tap | npx tap-junit > test.xml
+        run: |
+          find ./* -maxdepth 2 -name ava.config.js -print0 | \
+            xargs --null -I {} sh -c 'cd "$(dirname "{}")" && \
+            npx nyc --no-clean ava --tap && \
+            npx tap-junit > test_report.xml'
 
       - name: Publish test report
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
-          report_paths: 'test.xml'
+          report_paths: '**/test_report.xml'
           check_name: 'Test report'
           require_passed_tests: true
           detailed_summary: true
