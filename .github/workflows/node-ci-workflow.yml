@@ -55,7 +55,7 @@ jobs:
 
       - name: Generate test coverage report
         id: unit-tests-cov-step
-        run: find ./* -maxdepth 1 -name package.json -print0 | xargs --null -I {} npx nyc report --reporter lcov --reporter json-summary --reporter cobertura
+        run: npx nyc report --reporter lcov --reporter json-summary --reporter cobertura
 
       - name: Get current datetime
         id: current-datetime
