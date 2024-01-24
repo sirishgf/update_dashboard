@@ -52,7 +52,7 @@ jobs:
 
       - name: Get current datetime
         id: current-datetime
-        run: echo "::set-output name=datetime::$(date +'%Y-%m-%d_%H-%M-%S')"
+        run: echo "datetime=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_OUTPUT
 
       - name: Upload test artifact
         id: upload-test-artifact
