@@ -1,5 +1,5 @@
 const test = require("ava");
-const index = require("../../index.js");
+const index = require("../index.js");
 
 test("Sample Testcase", (t) => {
   t.pass();
