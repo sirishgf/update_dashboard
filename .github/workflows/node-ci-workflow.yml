@@ -70,6 +70,14 @@ jobs:
           name: test-report-artifact_${{ steps.current-datetime.outputs.datetime }}
           path: coverage/lcov-report
           retention-days: 14
+      
+      - name: Upload artifact
+        id: upload-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact
+          path: .nyc_output
+          retention-days: 1
 
       # - name: Publish test coverage report
       #   uses: sidx1024/report-nyc-coverage-github-action@v1.2.7
