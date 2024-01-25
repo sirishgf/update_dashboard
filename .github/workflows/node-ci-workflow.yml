@@ -42,7 +42,9 @@ jobs:
 
       - name: cwd
         run: |
-          echo $(ls -alh) && echo $(ls -alh src) && \
+          echo $(ls -alh) && echo && \
+          echo $(ls -alh functions) && echo && \
+          echo $(ls -alh functions/src) && echo && \
           echo $(ls -alh .nyc_output)
 
       - name: Publish test report
