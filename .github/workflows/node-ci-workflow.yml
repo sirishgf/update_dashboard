@@ -75,7 +75,10 @@ jobs:
       #     coverage_file: "coverage/coverage-summary.json"
 
       - name: cwd2
-        run: echo $(ls -alh) && echo $(ls -alh src) && echo $(ls -alh coverage)
+        run: |
+          echo $(ls -alh) && echo $(ls -alh src) && echo $(ls -alh coverage) && \
+          cat coverage/cobertura-coverage.xml && \
+          cat coverage/coverage-summary.json
         
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
