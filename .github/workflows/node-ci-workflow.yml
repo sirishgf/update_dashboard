@@ -41,7 +41,9 @@ jobs:
             npx tap-junit > test_report.xml && cd -' 
 
       - name: cwd
-        run: echo $(ls -alh) && echo $(ls -alh src)
+        run: |
+          echo $(ls -alh) && echo $(ls -alh src) && \
+          echo $(ls -alh .nyc_output)
 
       - name: Publish test report
         uses: mikepenz/action-junit-report@v4
