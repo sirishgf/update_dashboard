@@ -1,0 +1,137 @@
+# This workflow will build and test a Node.js project
+name: Deploy to Firebase Functions via github action
+
+on:
+  push:
+    branches: ["feature/*"]
+  pull_request:
+    branches: ["feature/*", "main"]
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
+    permissions:
+        checks: write
+        pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: .
+        run: find ./* -maxdepth 2 -name package.json -execdir npm ci \;
+
+      - name: Lint with ESLint
+        run: DEBUG=eslint:cli-engine npx eslint .
+
+      - name: Test with 'ava' and 'nyc'
+        id: unit-tests-step
+        run: |
+          find ./* -maxdepth 2 -name ava.config.js -print0 | \
+            xargs --null -I {} sh -c 'cd "$(dirname "{}")" && \
+            npx nyc --temp-dir="../../.nyc_output" --no-clean ava --tap | \
+            npx tap-junit > test_report.xml && cd -' 
+
+      - name: cwd
+        run: |
+          echo $(ls -alh) && echo && \
+          echo $(ls -alh functions) && echo && \
+          echo $(ls -alh functions/src) && echo && \
+          echo $(ls -alh .nyc_output)
+
+      - name: Publish test report
+        uses: mikepenz/action-junit-report@v4
+        if: success() || failure()
+        with:
+          report_paths: '**/test_report.xml'
+          check_name: 'Test report'
+          require_passed_tests: true
+          detailed_summary: true
+          include_passed: true
+
+      - name: Generate test coverage report
+        id: unit-tests-cov-step
+        run: npx nyc report --reporter lcov --reporter json-summary --reporter cobertura
+
+      - name: Get current datetime
+        id: current-datetime
+        run: echo "datetime=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_OUTPUT
+
+      - name: Upload test artifact
+        id: upload-test-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-artifact_${{ steps.current-datetime.outputs.datetime }}
+          path: coverage/lcov-report
+          retention-days: 14
+      
+      # - name: Upload artifact
+      #   id: upload-artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: artifact
+      #     path: .nyc_output
+      #     retention-days: 1
+
+      # - name: Publish test coverage report
+      #   uses: sidx1024/report-nyc-coverage-github-action@v1.2.7
+      #   with:
+      #     coverage_file: "coverage/coverage-summary.json"
+
+      - name: cwd2
+        run: |
+          echo $(ls -alh) && echo $(ls -alh src) && echo $(ls -alh coverage) && \
+          cat coverage/cobertura-coverage.xml && \
+          cat coverage/coverage-summary.json
+        
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        id: cov-report
+        with:
+          filename: coverage/cobertura-coverage.xml
+          badge: true
+          format: markdown
+          indicators: true
+          output: both
+          thresholds: '60 80'
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        # if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: code-coverage-results.md
+
+      - name: Add Coverage
+        id: test-id
+        run: |
+          {
+            echo 'summary<<='
+            awk '{printf "%s\\n", $0}' code-coverage-results.md 
+            echo
+            echo =
+          } >> "$GITHUB_OUTPUT"
+      
+      - name: Add d
+        id: test-ids
+        run: |
+          echo "${{ steps.test-id.outputs.summary }}"
+
+      - name: Add Coverage check
+        uses: LouisBrunner/checks-action@v1.6.1
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Test coveragec
+          conclusion: ${{ job.status }}
+          output: |
+            {"summary": "${{ steps.test-id.outputs.summary }}"}
+            
