@@ -39,3 +39,9 @@ jobs:
           report_paths: '**/junit.xml'
           detailed_summary: true
           include_passed: true
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
