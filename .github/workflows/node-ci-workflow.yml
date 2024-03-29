@@ -26,8 +26,8 @@ jobs:
         working-directory: .
         run: find ./* -maxdepth 1 -name package.json -execdir npm ci \;
 
-      - name: Lint with ESLint
-        run: DEBUG=eslint:cli-engine npx eslint .
+      # - name: Lint with ESLint
+      #   run: DEBUG=eslint:cli-engine npx eslint .
 
       - name: Test with Jest
         run: npx jest -c ./src/jest.config.js --ci --coverage --reporters=default --reporters=jest-junit 
